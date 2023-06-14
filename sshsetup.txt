@@ -1,0 +1,21 @@
+To install Ansible in AWS EC@ Amazon Linux2 Instance
+
+step1:
+Update system packages
+#sudo yum update
+
+step2:
+check if Ansible2 repository is enabled or not
+#sudo amazon-Linux-extras list | grep ansible2
+
+step3:
+If not enable the ansible2 repo by using this command enable the ansible2 repo
+#sudo amazon-linux-extras enable ansible2
+
+step4:
+Install Ansible 
+#sudo yum install -y ansible
+
+step5:
+If ansible is installed or not  to check 
+#ansible --version
