@@ -1,0 +1,102 @@
+Basic steps in Ansible server node
+
+#vi /etc/ansible/hosts
+#vi /etc/ansible/ansible.cfg
+#useradd username
+#passwd username
+#Visudo
+#vi /etc/ssh/sshd_config
+
+server setup
+
+#vi /etc/ansible/hosts
+add ip address
+
+example take like 2 dev and 2 qa
+add the server ip details
+[dev]
+192.168.1.1
+198.168.1.2
+
+[qa]
+192.168.2.1
+192.168.2.2
+
+after that
+vi /etc/ansible/ansible.cfg
+uncomment the
+Inventory
+sudo user
+
+ADD
+#useradd username
+#passwd username
+#visudo
+
+In that vi sudo
+below of that step
+root ALL=(ALL) ALL
+add the line
+username ALL=(ALL) NOPASSWD: ALL
+
+#vim /etc/ssh/sshd_config
+
+In password authentication at the last type "yes"
+
+------------------------------------------
+We have to do same steps in nodes
+
+=========================
+In all servers Dev node1 node2 etc
+
+#sudo systemctl restart sshd
+#sudo systemctl status sshd
+
+
+In all servers login Ansible
+
+switch the user 
+#su - ansible
+#ssh-keygen
+#ssh-copy-id ansible@localhost
+
+--------------------------------------
+How to check to connect the server
+#ssh 'ansible@localhost'
+#hostname -i
+
+#exit
+--------------------------------------
+To connect dev node1
+#ssh-copy-id ansible@puplicip
+#ssh 'ansible@puplicip'
+#Hostname -i
+#exit
+
+To connect to dev node2 same process
+
+==================================
+to check how many servers are their in my system
+
+#ansible all --list-hosts
+
+if you want to check specific group
+
+#ansible dev --list-hosts
+ 
+If you want to check specific number of server
+#ansible dev[0] --list-hosts
+
+-----------------------------------------------
+If want to create a file or install applications for specific server
+#ansible dev -a "touch file1"
+#ansible dev -a "ls"
+#ansible dev[0] -a "touch file2"
+#ansible dev[0] -a "ls"
+#ansible dev -a "sudo yum install git -y"
+#ansible dev[0] -a "rm -rf file2"
+#ansible dev -a "sudo yum install maven -y"
+#ansible dev -ba "yum install maven -y"
+
+---------------------------------************************************-------------------------------------
+ 
