@@ -1,5 +1,6 @@
 Basic steps in Ansible server node
-
+REMEMBER first login into root user easy command
+#sudo -i
 #vi /etc/ansible/hosts
 #vi /etc/ansible/ansible.cfg
 #useradd username
@@ -52,8 +53,9 @@ In all servers Dev node1 node2 etc
 #sudo systemctl restart sshd
 #sudo systemctl status sshd
 
+LOGIN in all server (when you create the user) login in all servers
 
-In all servers login Ansible
+In all servers login Ansible -> ansible is username when I create IF you like you can write any name inplace of ansible
 
 switch the user 
 #su - ansible
