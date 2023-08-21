@@ -94,7 +94,7 @@ If want to create a file or install applications for specific server
 #ansible dev[0] -a "touch file2"
 #ansible dev[0] -a "ls"
 #ansible dev -a "sudo yum install git -y"
-#ansible dev[0] -a "rm -rf file2"
+#ansible dev[0] -a "rm -rf file2"            To Do in particular server
 #ansible dev -a "sudo yum install maven -y"
 #ansible dev -ba "yum install maven -y"
 
